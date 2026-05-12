@@ -23,74 +23,84 @@
             --price-gradient: linear-gradient(135deg, #f59e0b, #f97316);
             --modal-bg: rgba(20, 20, 40, 0.9);
             --modal-border: rgba(124, 58, 237, 0.5);
+            --neon-glow: #ff00cc;
+            --trust-bg: rgba(255, 255, 255, 0.05);
+            --trust-border: #f5c759;
         }
 
-        body.theme-dark {
-            --bg: #0a0a0a;
-            --card-bg: rgba(25, 25, 15, 0.9);
-            --card-border: rgba(212, 175, 55, 0.4);
-            --card-shadow: 0 6px 36px rgba(0,0,0,0.6), 0 0 70px rgba(212, 175, 55, 0.3), 0 0 110px rgba(200, 160, 40, 0.2);
-            --card-hover-shadow: 0 10px 48px rgba(0,0,0,0.7), 0 0 90px rgba(212,175,55,0.5), 0 0 140px rgba(200,160,40,0.4);
-            --primary: #d4af37;
-            --accent: #b8860b;
+        /* --- 新增风格 1: Neon (霓虹粉) --- */
+        body.theme-neon {
+            --bg: #000000;
+            --card-bg: rgba(30, 0, 30, 0.85);
+            --card-border: rgba(255, 0, 200, 0.5);
+            --card-shadow: 0 6px 36px rgba(255,0,200,0.25);
+            --card-hover-shadow: 0 10px 48px rgba(0,0,0,0.7), 0 0 90px rgba(255,0,200,0.6);
+            --primary: #ff00cc;
+            --accent: #cc00ff;
+            --gold: #ffcc00;
+            --text: #fff5ff;
+            --subtext: #ccaacc;
+            --btn-gradient: linear-gradient(135deg, #ff00cc 0%, #5500ff 100%);
+            --btn-hover-shadow: 0 12px 40px rgba(255,0,204,0.8);
+            --logo-gradient: linear-gradient(135deg, #ff00cc, #cc00ff, #ffcc00, #ff00cc);
+            --highlight-gradient: linear-gradient(135deg, #ff00cc, #ffcc00);
+            --price-gradient: linear-gradient(135deg, #ff00cc, #ffcc00);
+            --modal-bg: rgba(20, 0, 20, 0.95);
+            --modal-border: #ff00cc;
+            --neon-glow: #ff00cc;
+            --trust-bg: rgba(255, 0, 200, 0.1);
+            --trust-border: #ff00cc;
+        }
+
+        /* --- 新增风格 2: Candy (糖果色) --- */
+        body.theme-candy {
+            --bg: #ffe4f0;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --card-border: rgba(255, 105, 180, 0.5);
+            --card-shadow: 0 6px 36px rgba(255,105,180,0.15);
+            --card-hover-shadow: 0 10px 48px rgba(255,105,180,0.3);
+            --primary: #ff69b4;
+            --accent: #00c0c0;
+            --gold: #ffcc00;
+            --text: #333333;
+            --subtext: #776677;
+            --btn-gradient: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            --btn-hover-shadow: 0 12px 40px rgba(255,105,180,0.6);
+            --logo-gradient: linear-gradient(135deg, #ff69b4, #ff1493, #ffb6c1, #ff69b4);
+            --highlight-gradient: linear-gradient(135deg, #ff1493, #ff69b4);
+            --price-gradient: linear-gradient(135deg, #ff1493, #ffb6c1);
+            --modal-bg: rgba(255, 240, 245, 0.95);
+            --modal-border: #ff69b4;
+            --neon-glow: #ff1493;
+            --trust-bg: rgba(255, 105, 180, 0.1);
+            --trust-border: #ff69b4;
+        }
+
+        /* --- 新增风格 3: Sunset (日落橙) --- */
+        body.theme-sunset {
+            --bg: #1a0a0a;
+            --card-bg: rgba(40, 15, 15, 0.9);
+            --card-border: #ff8c00;
+            --card-shadow: 0 6px 36px rgba(255,140,0,0.3);
+            --card-hover-shadow: 0 10px 48px rgba(255,69,0,0.5);
+            --primary: #ff4500;
+            --accent: #ff8c00;
             --gold: #ffd700;
-            --text: #e5d5b0;
-            --subtext: #b0a583;
-            --btn-gradient: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #8b6508 100%);
-            --btn-hover-shadow: 0 12px 40px rgba(212,175,55,0.8), 0 0 80px rgba(184,134,11,0.6);
-            --logo-gradient: linear-gradient(135deg, #ffd700 0%, #d4af37 30%, #b8860b 60%, #ffd700 100%);
-            --highlight-gradient: linear-gradient(135deg, #d4af37, #ff8c00);
-            --price-gradient: linear-gradient(135deg, #ffd700, #ff8c00);
-            --modal-bg: rgba(30, 30, 15, 0.95);
-            --modal-border: rgba(212, 175, 55, 0.7);
+            --text: #ffeedd;
+            --subtext: #cca888;
+            --btn-gradient: linear-gradient(135deg, #ff4500 0%, #ff8c00 100%);
+            --btn-hover-shadow: 0 12px 40px rgba(255,69,0,0.8);
+            --logo-gradient: linear-gradient(135deg, #ff4500, #ff8c00, #ffd700, #ff4500);
+            --highlight-gradient: linear-gradient(135deg, #ff4500, #ffd700);
+            --price-gradient: linear-gradient(135deg, #ff8c00, #ff4500);
+            --modal-bg: rgba(20, 5, 5, 0.95);
+            --modal-border: #ff8c00;
+            --neon-glow: #ff4500;
+            --trust-bg: rgba(255, 69, 0, 0.1);
+            --trust-border: #ff8c00;
         }
 
-        body.theme-aurora {
-            --bg: #001a33;
-            --card-bg: rgba(10, 25, 45, 0.85);
-            --card-border: rgba(0, 255, 200, 0.3);
-            --card-shadow: 0 6px 36px rgba(0,0,0,0.5), 0 0 70px rgba(0,255,200,0.25), 0 0 110px rgba(0,180,255,0.2);
-            --card-hover-shadow: 0 10px 48px rgba(0,0,0,0.6), 0 0 90px rgba(0,255,200,0.4), 0 0 140px rgba(0,180,255,0.35);
-            --primary: #00ffc8;
-            --accent: #00b4d8;
-            --gold: #90e0ef;
-            --text: #d0f0ff;
-            --subtext: #90c0d0;
-            --btn-gradient: linear-gradient(135deg, #00ffc8 0%, #00b4d8 40%, #0077b6 100%);
-            --btn-hover-shadow: 0 12px 40px rgba(0,255,200,0.7), 0 0 80px rgba(0,180,255,0.5);
-            --logo-gradient: linear-gradient(135deg, #00ffc8 0%, #00b4d8 30%, #90e0ef 60%, #00ffc8 100%);
-            --highlight-gradient: linear-gradient(135deg, #00ffc8, #0077b6);
-            --price-gradient: linear-gradient(135deg, #90e0ef, #00b4d8);
-            --modal-bg: rgba(10, 30, 50, 0.95);
-            --modal-border: rgba(0, 255, 200, 0.6);
-        }
-
-        body.theme-cyber {
-            --bg: #0d0221;
-            --card-bg: rgba(10, 5, 30, 0.9);
-            --card-border: rgba(255, 0, 200, 0.4);
-            --card-shadow: 0 6px 36px rgba(0,0,0,0.6), 0 0 70px rgba(255,0,200,0.3), 0 0 110px rgba(0,255,255,0.2);
-            --card-hover-shadow: 0 10px 48px rgba(0,0,0,0.7), 0 0 90px rgba(255,0,200,0.5), 0 0 140px rgba(0,255,255,0.35);
-            --primary: #ff00c8;
-            --accent: #00ffff;
-            --gold: #ff00ff;
-            --text: #f0e0ff;
-            --subtext: #c0a0d0;
-            --btn-gradient: linear-gradient(135deg, #ff00c8 0%, #7b00ff 40%, #00ffff 100%);
-            --btn-hover-shadow: 0 12px 40px rgba(255,0,200,0.8), 0 0 80px rgba(0,255,255,0.6);
-            --logo-gradient: linear-gradient(135deg, #ff00c8 0%, #7b00ff 30%, #00ffff 60%, #ff00c8 100%);
-            --highlight-gradient: linear-gradient(135deg, #ff00c8, #00ffff);
-            --price-gradient: linear-gradient(135deg, #ff00ff, #00ffff);
-            --modal-bg: rgba(20, 5, 40, 0.95);
-            --modal-border: rgba(255, 0, 200, 0.7);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
             background: var(--bg);
@@ -98,10 +108,10 @@
             overflow-x: hidden;
             min-height: 100vh;
             cursor: default;
-            -webkit-font-smoothing: antialiased;
             transition: background 0.5s ease, color 0.5s ease;
         }
 
+        /* --- 背景粒子画布 --- */
         #particlesCanvas {
             position: fixed;
             top: 0;
@@ -112,15 +122,42 @@
             pointer-events: none;
         }
 
+        /* --- 额外浮动特效层 --- */
+        #sparklesContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, var(--accent), transparent 70%);
+            border-radius: 50%;
+            animation: floatSparkle linear infinite;
+            opacity: 0.5;
+            filter: blur(1px);
+        }
+        @keyframes floatSparkle {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0); opacity: 0; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) rotate(720deg) scale(1); opacity: 0; }
+        }
+
         .main-container {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            padding: 40px 20px 60px;
             min-height: 100vh;
-            padding: 30px 20px;
         }
 
         .logo-text {
@@ -132,13 +169,10 @@
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             animation: gradient-shift 4s ease infinite;
             margin-bottom: 10px;
-            text-align: center;
-            filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.5));
+            filter: drop-shadow(0 0 30px var(--primary));
         }
-
         @keyframes gradient-shift {
             0%,100% { background-position: 0% 50%; }
             25% { background-position: 100% 0%; }
@@ -152,7 +186,6 @@
             color: var(--subtext);
             text-transform: uppercase;
             margin-bottom: 20px;
-            text-align: center;
         }
 
         .badge {
@@ -165,13 +198,11 @@
             font-weight: 600;
             letter-spacing: 2px;
             background: rgba(124, 58, 237, 0.12);
-            border: 1px solid rgba(124, 58, 237, 0.35);
-            color: #b8abff;
+            border: 1px solid var(--card-border);
+            color: var(--subtext);
             margin-bottom: 18px;
             backdrop-filter: blur(6px);
-            animation: fadeInUp 0.7s ease forwards;
         }
-
         .badge .dot {
             width: 7px;
             height: 7px;
@@ -180,278 +211,259 @@
             animation: pulse-dot 2s ease-in-out infinite;
             box-shadow: 0 0 10px var(--accent);
         }
-
         @keyframes pulse-dot {
-            0%,100% { box-shadow: 0 0 6px var(--accent); }
-            50% { box-shadow: 0 0 22px var(--accent), 0 0 40px rgba(6,182,212,0.6); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
+            0%,100% { box-shadow: 0 0 6px var(--accent); opacity:0.5; }
+            50% { box-shadow: 0 0 22px var(--accent), 0 0 40px var(--accent); opacity:1; }
         }
 
         .main-title {
             font-size: clamp(1.8rem, 4.5vw, 3.2rem);
             font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
             text-align: center;
-            animation: fadeInUp 0.7s ease 0.08s forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
             color: #fff;
+            margin-bottom: 6px;
+            text-shadow: 0 0 20px rgba(255,255,255,0.1);
         }
-
         .main-title .highlight {
             background: var(--highlight-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%,100% { filter: drop-shadow(0 0 5px var(--primary)); }
+            50% { filter: drop-shadow(0 0 20px var(--accent)); }
         }
 
         .sub-title {
             font-size: clamp(0.9rem, 1.6vw, 1.05rem);
             color: var(--subtext);
-            max-width: 520px;
-            line-height: 1.7;
-            margin-bottom: 24px;
             text-align: center;
-            animation: fadeInUp 0.7s ease 0.16s forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
+            margin-bottom: 0;
         }
 
-        /* ========== 功能卡片网格 (已上移) ========== */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 16px;
-            max-width: 650px;
-            width: 100%;
-            margin: 0 auto 30px;
-            animation: fadeInUp 0.7s ease 0.24s forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 20px 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        /* --- 下载按钮 --- */
+        .download-area {
+            margin: 20px 0 20px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
         }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255,255,255,0.3);
-            box-shadow: 0 8px 30px rgba(124,58,237,0.25);
-        }
-
-        .feature-card .feat-icon {
-            font-size: 2rem;
-            margin-bottom: 4px;
-        }
-
-        .feature-card .feat-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-
-        .feature-card .feat-desc {
-            font-size: 0.75rem;
-            color: #aaa;
-            line-height: 1.4;
-        }
-
-        /* ========== 支付卡片 ========== */
-        .payment-card-wrapper {
-            animation: fadeInUp 0.7s ease 0.32s forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .payment-card-glow {
-            position: absolute;
-            inset: -4px;
-            border-radius: 24px;
-            background: conic-gradient(from 0deg, transparent 0deg, rgba(124,58,237,0.7) 60deg, rgba(6,182,212,0.8) 120deg, rgba(245,158,11,0.7) 180deg, rgba(244,114,182,0.6) 240deg, rgba(124,58,237,0.7) 300deg, transparent 360deg);
-            animation: rotate-glow 4s linear infinite;
-            filter: blur(22px);
-            z-index: -1;
-            opacity: 0.65;
-        }
-
-        @keyframes rotate-glow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .payment-card {
-            position: relative;
-            background: var(--card-bg);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            border: 1.5px solid var(--card-border);
-            border-radius: 20px;
-            padding: 34px 30px;
-            text-align: center;
-            box-shadow: var(--card-shadow);
-            transition: all 0.4s ease;
-            max-width: 500px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        .payment-card:hover {
-            border-color: rgba(255,255,255,0.28);
-            box-shadow: var(--card-hover-shadow), inset 0 1px 0 rgba(255,255,255,0.07);
-            transform: translateY(-2px);
-        }
-
-        .payment-card .card-icon {
-            font-size: 2.8rem;
-            margin-bottom: 8px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%,100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .payment-card .card-label {
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #8888a0;
-            margin-bottom: 6px;
-            font-weight: 500;
-        }
-
-        .payment-card .card-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 4px;
-            letter-spacing: 1px;
-        }
-
-        .payment-card .card-price {
-            font-size: 2.4rem;
-            font-weight: 900;
-            background: var(--price-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2px;
-            letter-spacing: 2px;
-        }
-
-        .payment-card .card-desc {
-            font-size: 0.85rem;
-            color: #9999b0;
-            margin-bottom: 18px;
-        }
-
-        .buttons-row {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 12px;
-        }
-
-        .btn-card {
-            position: relative;
-            z-index: 1;
+        .download-area .btn-card {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            padding: 14px 24px;
-            font-size: 0.95rem;
+            padding: 14px 40px;
+            font-size: 1rem;
             font-weight: 700;
             letter-spacing: 1px;
             color: #fff;
-            text-decoration: none;
             border-radius: 60px;
             background: var(--btn-gradient);
             background-size: 200% 200%;
-            animation: btn-shift 3s ease infinite;
             border: none;
             cursor: pointer;
-            box-shadow: 0 6px 20px rgba(124,58,237,0.4);
+            box-shadow: 0 6px 20px var(--primary);
             transition: all 0.3s ease;
             min-width: 130px;
+            position: relative;
+            overflow: hidden;
         }
-
-        .btn-card:hover {
+        .download-area .btn-card:hover {
             transform: scale(1.05);
             box-shadow: var(--btn-hover-shadow);
             letter-spacing: 2px;
         }
-
-        .btn-card:active {
-            transform: scale(0.95);
+        .download-area .btn-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, var(--accent), transparent, var(--gold), transparent);
+            animation: rotate-ring 6s linear infinite;
+            z-index: -1;
+            filter: blur(20px);
+        }
+        @keyframes rotate-ring {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
-        @keyframes btn-shift {
-            0%,100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        /* --- 卡片区域通用样式 --- */
+        .three-cards-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto 25px;
         }
 
-        .security-badges {
+        .indie-card {
+            position: relative;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px 25px;
+            width: 220px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+            cursor: default;
+            color: var(--text);
+            overflow: hidden;
+            animation: card-float 3s ease-in-out infinite;
+        }
+        .indie-card:nth-child(2) { animation-delay: 0.2s; }
+        .indie-card:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes card-float {
+            0%,100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .indie-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        /* 动态边框流光 */
+        .indie-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: conic-gradient(from 0deg, transparent 0%, var(--primary) 20%, var(--accent) 40%, transparent 60%, var(--gold) 80%, transparent 100%);
+            z-index: -1;
+            animation: border-rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .indie-card:hover::before {
+            opacity: 1;
+        }
+        @keyframes border-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .indie-card .card-icon {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            animation: icon-float 2s ease-in-out infinite;
+        }
+        .indie-card:nth-child(2) .card-icon { animation-delay: 0.15s; }
+        .indie-card:nth-child(3) .card-icon { animation-delay: 0.3s; }
+        @keyframes icon-float {
+            0%,100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.1); }
+        }
+
+        .indie-card .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: var(--highlight-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .indie-card .card-desc {
+            font-size: 0.85rem;
+            color: var(--subtext);
+            line-height: 1.6;
+        }
+
+        .pay-card-item {
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .pay-card-item .card-title {
+            background: var(--highlight-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.1rem;
+        }
+
+        /* --- 安全支付值得信赖 区块 (点击跳转) --- */
+        .trust-wrapper {
+            margin: 30px 0 15px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .trust-badge {
+            position: relative;
+            background: var(--trust-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--trust-border);
+            border-radius: 60px;
+            padding: 12px 32px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+            animation: trust-pulse 2s ease-in-out infinite;
+            text-decoration: none; /* 去除下划线 */
+        }
+        .trust-badge .shield-icon {
+            font-size: 1.6rem;
+            filter: drop-shadow(0 0 8px var(--gold));
+        }
+        .trust-badge .lock-icon {
+            font-size: 1.2rem;
+            margin-right: 4px;
+        }
+        @keyframes trust-pulse {
+            0%,100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 215, 0, 0.1); }
+            50% { transform: scale(1.02); box-shadow: 0 0 40px rgba(255, 215, 0, 0.3); }
+        }
+        .trust-badge::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 60px;
+            background: conic-gradient(from 0deg, transparent, var(--gold), transparent, var(--accent), transparent);
+            z-index: -1;
+            animation: border-rotate 3s linear infinite;
+            filter: blur(4px);
+        }
+
+        /* --- 下方安全徽章 --- */
+        .security-area {
             display: flex;
             gap: 16px;
-            margin-top: 8px;
+            margin-top: 10px;
             flex-wrap: wrap;
             justify-content: center;
-            animation: fadeInUp 0.7s ease 0.36s forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
         }
-
         .sec-badge {
             display: flex;
             align-items: center;
             gap: 5px;
             font-size: 0.75rem;
-            color: #8888a0;
+            color: var(--subtext);
             letter-spacing: 0.5px;
         }
-
         .sec-badge .sec-icon {
             font-size: 0.95rem;
             color: var(--accent);
         }
 
-        .footer-text {
-            margin-top: 25px;
-            font-size: 0.75rem;
-            color: #555;
-            letter-spacing: 1px;
-            text-align: center;
-            animation: fadeInUp 0.7s ease 0.42s forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-
-        /* 弹窗 */
+        /* --- 弹窗 --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -468,12 +480,10 @@
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
-
         .modal-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
-
         .modal-dialog {
             background: var(--modal-bg);
             backdrop-filter: blur(30px);
@@ -484,26 +494,17 @@
             max-width: 380px;
             width: 90%;
             box-shadow: 0 10px 50px rgba(0,0,0,0.6);
-            animation: modalPop 0.4s ease forwards;
         }
-
-        @keyframes modalPop {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
         .modal-dialog .modal-icon {
             font-size: 3rem;
             margin-bottom: 10px;
         }
-
         .modal-dialog h3 {
             font-size: 1.8rem;
             font-weight: 800;
             color: #fff;
             margin-bottom: 10px;
         }
-
         .modal-dialog .password-box {
             background: rgba(0,0,0,0.3);
             border: 1px dashed var(--accent);
@@ -512,14 +513,6 @@
             margin: 20px 0;
             display: inline-block;
         }
-
-        .modal-dialog .password-box .label {
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            color: #8888a0;
-            margin-bottom: 6px;
-        }
-
         .modal-dialog .password-box .password {
             font-size: 2.8rem;
             font-weight: 900;
@@ -530,7 +523,6 @@
             letter-spacing: 6px;
             user-select: all;
         }
-
         .modal-dialog .btn-know {
             margin-top: 20px;
             padding: 14px 40px;
@@ -542,97 +534,99 @@
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(6,182,212,0.5);
+            box-shadow: 0 4px 20px var(--accent);
             transition: all 0.3s ease;
         }
-
         .modal-dialog .btn-know:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(6,182,212,0.8);
+            box-shadow: 0 8px 30px var(--accent);
         }
 
         @media (max-width: 768px) {
-            .btn-card {
-                padding: 12px 16px;
-                font-size: 0.82rem;
-                min-width: 100px;
+            .indie-card {
+                width: 90%;
+                max-width: 300px;
             }
-            .buttons-row {
-                gap: 8px;
+            .three-cards-row {
+                flex-direction: column;
+                align-items: center;
             }
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .trust-badge {
+                font-size: 0.9rem;
+                padding: 10px 20px;
             }
         }
     </style>
 </head>
 <body class="theme-default">
     <canvas id="particlesCanvas"></canvas>
+    <div id="sparklesContainer"></div>
     <div class="main-container">
         <h1 class="logo-text">kiro</h1>
         <p class="logo-sub">数字世界入口</p>
         <div class="badge">
             <span class="dot"></span> 限时通道 · 即刻访问
         </div>
+        
         <h2 class="main-title">释放<span class="highlight">无限潜能</span></h2>
-        <p class="sub-title">安全 · 高效 · 极速响应的数字服务平台</p>
 
-        <!-- 功能卡片网格 (上移到此，移除实体旋转) -->
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feat-icon">🎨</div>
-                <div class="feat-title">炫酷UI</div>
-                <div class="feat-desc">UI采用炫彩设计<br>直接让你帅的起飞</div>
+        <!-- 下载按钮 -->
+        <div class="download-area">
+            <button id="downloadBtn" class="btn-card">📥 立即下载KIRO</button>
+        </div>
+
+        <!-- 三大功能卡片 -->
+        <div class="three-cards-row">
+            <div class="indie-card card-ui">
+                <div class="card-icon">★</div>
+                <div class="card-title">炫酷UI</div>
+                <div class="card-desc">UI采用炫彩设计<br>直接让你帅的起飞</div>
             </div>
-            <div class="feature-card">
-                <div class="feat-icon">⚡</div>
-                <div class="feat-title">自动拾取</div>
-                <div class="feat-desc">智能识别目标<br>极速响应快人一步</div>
+            <div class="indie-card card-features">
+                <div class="card-icon">⚡</div>
+                <div class="card-title">独家功能</div>
+                <div class="card-desc">自动拾取<br>自动开门<br>静默跑飞</div>
             </div>
-            <div class="feature-card">
-                <div class="feat-icon">🛡️</div>
-                <div class="feat-title">安全可靠</div>
-                <div class="feat-desc">不含任何病毒<br>恶意代码零容忍</div>
-            </div>
-            <div class="feature-card">
-                <div class="feat-icon">🚪</div>
-                <div class="feat-title">自动开门</div>
-                <div class="feat-desc">智能路径规划<br>畅通无阻快感</div>
-            </div>
-            <div class="feature-card">
-                <div class="feat-icon">🔇</div>
-                <div class="feat-title">静默路飞</div>
-                <div class="feat-desc">低调隐蔽运行<br>如影随风不留痕</div>
+            <div class="indie-card card-safe">
+                <div class="card-icon">🛡️</div>
+                <div class="card-title">安全可靠</div>
+                <div class="card-desc">本软件不含任何病毒<br>恶意代码或隐匿功能</div>
             </div>
         </div>
 
-        <!-- 支付卡片 (紧随其后) -->
-        <div class="payment-card-wrapper">
-            <div class="payment-card-glow"></div>
-            <div class="payment-card">
+        <!-- 三个支付按钮卡片 -->
+        <div class="three-cards-row">
+            <button class="indie-card pay-card-item" id="serviceBtn">
+                <div class="card-icon">💬</div>
+                <div class="card-title">售后群点我</div>
+            </button>
+            <a href="https://buy.jry0.com/shop/TRHDALAC" target="_blank" rel="noopener noreferrer" class="indie-card pay-card-item">
                 <div class="card-icon">💳</div>
-                <div class="card-label">专属通道</div>
-                <div class="card-title">卡网支付</div>
-                <div class="card-price">立即访问</div>
-                <div class="card-desc">点击下方按钮进入对应服务</div>
-                <div class="buttons-row">
-                    <button class="btn-card" id="serviceBtn">💬 售后群点我</button>
-                    <a href="https://buy.jry0.com/shop/TRHDALAC" target="_blank" rel="noopener noreferrer" class="btn-card">💳 前往卡网</a>
-                    <button class="btn-card" id="themeSwitchBtn">🎨 转变风格</button>
-                </div>
-                <div class="security-badges">
-                    <span class="sec-badge"><span class="sec-icon">🔒</span> SSL 加密</span>
-                    <span class="sec-badge"><span class="sec-icon">⚡</span> 即时到账</span>
-                    <span class="sec-badge"><span class="sec-icon">🛡️</span> 安全可信</span>
-                </div>
-            </div>
+                <div class="card-title">前往卡网</div>
+            </a>
+            <button class="indie-card pay-card-item" id="themeSwitchBtn">
+                <div class="card-icon">🎨</div>
+                <div class="card-title">转变风格</div>
+            </button>
         </div>
 
-        <button id="downloadBtn" class="btn-card" style="margin: 8px 0;">📥 下载地址</button>
-        <p class="footer-text">© 2026 kiro — 保留所有权利 · 版本 V1.2.14</p>
+        <!-- 安全支付值得信赖 (现已可点击并跳转至卡网) -->
+        <div class="trust-wrapper">
+            <a href="https://buy.jry0.com/shop/TRHDALAC" target="_blank" rel="noopener noreferrer" class="trust-badge">
+                <span class="shield-icon">🛡️</span>
+                <span><span class="lock-icon">🔒</span> 安全支付 值得信赖</span>
+            </a>
+        </div>
+
+        <!-- 安全保障徽章 -->
+        <div class="security-area">
+            <span class="sec-badge"><span class="sec-icon">🔒</span> SSL 加密</span>
+            <span class="sec-badge"><span class="sec-icon">⚡</span> 即时到账</span>
+            <span class="sec-badge"><span class="sec-icon">🛡️</span> 安全可信</span>
+        </div>
     </div>
 
-    <!-- 下载密码弹窗 -->
+    <!-- 密码弹窗 -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-dialog">
             <div class="modal-icon">🔐</div>
@@ -647,11 +641,25 @@
 
     <script>
         (function() {
+            // --- 浮动星星特效 --- 
+            const sparklesContainer = document.getElementById('sparklesContainer');
+            for (let i = 0; i < 35; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.animationDuration = (Math.random() * 6 + 5) + 's';
+                sparkle.style.animationDelay = (Math.random() * 10) + 's';
+                sparkle.style.width = (Math.random() * 8 + 4) + 'px';
+                sparkle.style.height = sparkle.style.width;
+                sparklesContainer.appendChild(sparkle);
+            }
+
+            // --- 粒子系统 ---
             const canvas = document.getElementById('particlesCanvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
             let mouseX = -1000, mouseY = -1000;
-            const particleCount = 130;
+            const particleCount = 160;
             let currentHues = [265, 185, 38, 335];
 
             function resizeCanvas() {
@@ -659,7 +667,7 @@
                 canvas.height = window.innerHeight;
             }
             resizeCanvas();
-            window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+            window.addEventListener('resize', resizeCanvas);
             document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
             document.addEventListener('touchmove', (e) => { if(e.touches.length>0){ mouseX=e.touches[0].clientX; mouseY=e.touches[0].clientY; } });
             document.addEventListener('mouseleave', () => { mouseX=-1000; mouseY=-1000; });
@@ -669,14 +677,14 @@
                 reset() {
                     this.x = Math.random() * canvas.width;
                     this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2.2 + 0.6;
-                    this.speedX = (Math.random() - 0.5) * 0.45;
-                    this.speedY = (Math.random() - 0.5) * 0.45;
-                    this.opacity = Math.random() * 0.7 + 0.3;
-                    this.hue = currentHues[Math.floor(Math.random() * currentHues.length)] + (Math.random()*20 - 10);
-                    this.life = Math.random()*300+200;
+                    this.size = Math.random() * 3.5 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.4;
+                    this.speedY = (Math.random() - 0.5) * 0.4;
+                    this.opacity = Math.random() * 0.6 + 0.4;
+                    this.hue = currentHues[Math.floor(Math.random() * currentHues.length)] + (Math.random()*25 - 12);
+                    this.life = Math.random()*300 + 200;
                     this.maxLife = this.life;
-                    this.twinkleSpeed = Math.random()*0.02+0.005;
+                    this.twinkleSpeed = Math.random()*0.02 + 0.005;
                     this.twinkleOffset = Math.random()*Math.PI*2;
                 }
                 update() {
@@ -684,37 +692,37 @@
                     this.y += this.speedY;
                     const dx = mouseX - this.x, dy = mouseY - this.y;
                     const dist = Math.sqrt(dx*dx+dy*dy);
-                    if(dist<170 && mouseX>0 && mouseY>0){
-                        const force = (170-dist)/170;
-                        this.speedX += (dx/dist)*force*0.025;
-                        this.speedY += (dy/dist)*force*0.025;
+                    if(dist < 180 && mouseX > 0 && mouseY > 0){
+                        const force = (180 - dist) / 180;
+                        this.speedX += (dx/dist)*force*0.02;
+                        this.speedY += (dy/dist)*force*0.02;
                     }
                     this.speedX *= 0.999; this.speedY *= 0.999;
                     const maxSpeed=1.4, speed=Math.sqrt(this.speedX**2+this.speedY**2);
                     if(speed>maxSpeed){ this.speedX=(this.speedX/speed)*maxSpeed; this.speedY=(this.speedY/speed)*maxSpeed; }
-                    if(this.x<-20) this.x=canvas.width+20;
-                    if(this.x>canvas.width+20) this.x=-20;
-                    if(this.y<-20) this.y=canvas.height+20;
-                    if(this.y>canvas.height+20) this.y=-20;
+                    if(this.x < -20) this.x = canvas.width + 20;
+                    if(this.x > canvas.width + 20) this.x = -20;
+                    if(this.y < -20) this.y = canvas.height + 20;
+                    if(this.y > canvas.height + 20) this.y = -20;
                     this.life--;
-                    if(this.life<=0) this.reset();
+                    if(this.life <= 0) this.reset();
                 }
                 getAlpha() {
                     const lifeRatio = this.life/this.maxLife;
-                    const twinkle = Math.sin(this.life*this.twinkleSpeed+this.twinkleOffset)*0.3+0.7;
-                    return this.opacity*lifeRatio*twinkle;
+                    const twinkle = Math.sin(this.life*this.twinkleSpeed+this.twinkleOffset)*0.3 + 0.7;
+                    return this.opacity * lifeRatio * twinkle;
                 }
                 draw(ctx) {
                     const alpha = this.getAlpha();
-                    if(alpha<0.04) return;
+                    if(alpha < 0.05) return;
                     ctx.beginPath();
-                    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-                    ctx.fillStyle = `hsla(${this.hue},80%,70%,${alpha})`;
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+                    ctx.fillStyle = `hsla(${this.hue}, 80%, 70%, ${alpha})`;
                     ctx.fill();
-                    if(this.size>1.2 && alpha>0.35){
+                    if(this.size > 1.5 && alpha > 0.3){
                         ctx.beginPath();
-                        ctx.arc(this.x,this.y,this.size*2.5,0,Math.PI*2);
-                        ctx.fillStyle = `hsla(${this.hue},85%,60%,${alpha*0.13})`;
+                        ctx.arc(this.x, this.y, this.size*3, 0, Math.PI*2);
+                        ctx.fillStyle = `hsla(${this.hue}, 85%, 60%, ${alpha*0.1})`;
                         ctx.fill();
                     }
                 }
@@ -722,28 +730,28 @@
 
             function initParticles() {
                 particles = [];
-                for(let i=0;i<particleCount;i++) particles.push(new Particle());
+                for(let i=0; i<particleCount; i++) particles.push(new Particle());
             }
             initParticles();
 
             function drawLines(ctx) {
-                for(let i=0;i<particles.length;i++){
-                    for(let j=i+1;j<particles.length;j++){
+                for(let i=0; i<particles.length; i++){
+                    for(let j=i+1; j<particles.length; j++){
                         const dx = particles[i].x-particles[j].x;
                         const dy = particles[i].y-particles[j].y;
                         const dist = Math.sqrt(dx*dx+dy*dy);
                         const maxDist = 110;
-                        if(dist<maxDist){
-                            const alpha = (1-dist/maxDist)*0.13;
+                        if(dist < maxDist){
+                            const alpha = (1 - dist/maxDist) * 0.15;
                             const alphaI = particles[i].getAlpha();
                             const alphaJ = particles[j].getAlpha();
-                            const lineAlpha = alpha*Math.min(alphaI,alphaJ)*3;
-                            if(lineAlpha>0.008){
+                            const lineAlpha = alpha * Math.min(alphaI, alphaJ) * 3;
+                            if(lineAlpha > 0.008){
                                 ctx.beginPath();
-                                ctx.moveTo(particles[i].x,particles[i].y);
-                                ctx.lineTo(particles[j].x,particles[j].y);
-                                ctx.strokeStyle = `rgba(170,170,210,${lineAlpha})`;
-                                ctx.lineWidth = 0.4;
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = `rgba(180, 180, 220, ${lineAlpha})`;
+                                ctx.lineWidth = 0.6;
                                 ctx.stroke();
                             }
                         }
@@ -752,19 +760,23 @@
             }
 
             function animate() {
-                ctx.clearRect(0,0,canvas.width,canvas.height);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
                 particles.forEach(p => { p.update(); p.draw(ctx); });
                 drawLines(ctx);
                 requestAnimationFrame(animate);
             }
             animate();
 
-            const themeKeys = ['theme-default', 'theme-dark', 'theme-aurora', 'theme-cyber'];
+            // --- 主题切换逻辑 (新增 Neon, Candy, Sunset) ---
+            const themeKeys = ['theme-default', 'theme-dark', 'theme-aurora', 'theme-cyber', 'theme-neon', 'theme-candy', 'theme-sunset'];
             const themeHues = {
                 'theme-default': [265, 185, 38, 335],
                 'theme-dark': [45, 35, 20, 50],
                 'theme-aurora': [160, 190, 200, 170],
-                'theme-cyber': [300, 180, 280, 330]
+                'theme-cyber': [300, 180, 280, 330],
+                'theme-neon': [320, 300, 340, 310],
+                'theme-candy': [340, 20, 160, 30],
+                'theme-sunset': [15, 25, 35, 40]
             };
             let currentThemeIndex = 0;
 
