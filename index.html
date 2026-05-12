@@ -23,7 +23,6 @@
             --price-gradient: linear-gradient(135deg, #f59e0b, #f97316);
             --modal-bg: rgba(20, 20, 40, 0.9);
             --modal-border: rgba(124, 58, 237, 0.5);
-            --particle-hues: [265, 185, 38, 335];
         }
 
         body.theme-dark {
@@ -44,7 +43,6 @@
             --price-gradient: linear-gradient(135deg, #ffd700, #ff8c00);
             --modal-bg: rgba(30, 30, 15, 0.95);
             --modal-border: rgba(212, 175, 55, 0.7);
-            --particle-hues: [45, 35, 20, 50];
         }
 
         body.theme-aurora {
@@ -65,7 +63,6 @@
             --price-gradient: linear-gradient(135deg, #90e0ef, #00b4d8);
             --modal-bg: rgba(10, 30, 50, 0.95);
             --modal-border: rgba(0, 255, 200, 0.6);
-            --particle-hues: [160, 190, 200, 170];
         }
 
         body.theme-cyber {
@@ -86,7 +83,6 @@
             --price-gradient: linear-gradient(135deg, #ff00ff, #00ffff);
             --modal-bg: rgba(20, 5, 40, 0.95);
             --modal-border: rgba(255, 0, 200, 0.7);
-            --particle-hues: [300, 180, 280, 330];
         }
 
         * {
@@ -229,12 +225,13 @@
             animation-fill-mode: forwards;
         }
 
+        /* ========== 支付卡片 ========== */
         .payment-card-wrapper {
             animation: fadeInUp 0.7s ease 0.28s forwards;
             opacity: 0;
             animation-fill-mode: forwards;
             position: relative;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .payment-card-glow {
@@ -246,7 +243,6 @@
             filter: blur(22px);
             z-index: -1;
             opacity: 0.65;
-            transition: opacity 0.5s;
         }
 
         @keyframes rotate-glow {
@@ -394,57 +390,71 @@
             color: var(--accent);
         }
 
-        .features-row {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
+        /* ========== 功能卡片网格 ========== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            max-width: 700px;
+            width: 100%;
+            margin: 30px auto 10px;
             animation: fadeInUp 0.7s ease 0.42s forwards;
             opacity: 0;
             animation-fill-mode: forwards;
         }
 
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            font-size: 0.82rem;
-            color: #b0b0c0;
-            letter-spacing: 0.5px;
-            padding: 9px 16px;
-            border-radius: 50px;
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.07);
+        .feature-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
 
-        .feature-item:hover {
-            background: rgba(255,255,255,0.05);
-            border-color: rgba(255,255,255,0.18);
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.3);
+            box-shadow: 0 8px 30px rgba(124,58,237,0.25);
+        }
+
+        .feature-card .feat-icon {
+            font-size: 2rem;
+            margin-bottom: 4px;
+        }
+
+        .feature-card .feat-title {
+            font-size: 1rem;
+            font-weight: 700;
             color: #fff;
+            letter-spacing: 0.5px;
         }
 
-        .feature-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 8px rgba(6,182,212,0.6);
+        .feature-card .feat-desc {
+            font-size: 0.75rem;
+            color: #aaa;
+            line-height: 1.4;
         }
 
         .footer-text {
-            margin-top: 40px;
+            margin-top: 30px;
             font-size: 0.75rem;
             color: #555;
             letter-spacing: 1px;
+            text-align: center;
             animation: fadeInUp 0.7s ease 0.48s forwards;
             opacity: 0;
             animation-fill-mode: forwards;
-            text-align: center;
         }
 
-        /* 弹窗样式 */
+        /* ========== 弹窗 ========== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -476,8 +486,8 @@
             text-align: center;
             max-width: 380px;
             width: 90%;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.6), 0 0 70px rgba(124,58,237,0.4);
-            animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.6);
+            animation: modalPop 0.4s ease forwards;
         }
 
         @keyframes modalPop {
@@ -553,6 +563,9 @@
             .buttons-row {
                 gap: 8px;
             }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -564,9 +577,10 @@
         <div class="badge">
             <span class="dot"></span> 限时通道 · 即刻访问
         </div>
-        <h2 class="main-title">探索<span class="highlight">无限可能</span></h2>
+        <h2 class="main-title">释放<span class="highlight">无限潜能</span></h2>
         <p class="sub-title">安全 · 高效 · 极速响应的数字服务平台<br>为您打开通往未来的大门</p>
 
+        <!-- 支付卡片（含三个按钮） -->
         <div class="payment-card-wrapper">
             <div class="payment-card-glow"></div>
             <div class="payment-card">
@@ -588,17 +602,47 @@
             </div>
         </div>
 
-        <button id="downloadBtn" class="btn-card" style="margin: 10px 0;">📥 下载地址</button>
+        <!-- 下载按钮独立 -->
+        <button id="downloadBtn" class="btn-card" style="margin: 8px 0;">📥 下载地址</button>
 
-        <div class="features-row">
-            <div class="feature-item"><span class="feature-dot"></span> 7×24小时支持</div>
-            <div class="feature-item"><span class="feature-dot"></span> 极速响应</div>
-            <div class="feature-item"><span class="feature-dot"></span> 全球覆盖</div>
-            <div class="feature-item"><span class="feature-dot"></span> 数据加密</div>
+        <!-- 特性网格卡片 -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feat-icon">🎨</div>
+                <div class="feat-title">炫酷UI</div>
+                <div class="feat-desc">UI采用炫彩设计<br>直接让你帅的起飞</div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">⚡</div>
+                <div class="feat-title">自动拾取</div>
+                <div class="feat-desc">智能识别目标<br>极速响应快人一步</div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">🛡️</div>
+                <div class="feat-title">安全可靠</div>
+                <div class="feat-desc">不含任何病毒<br>恶意代码零容忍</div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">🌀</div>
+                <div class="feat-title">实体旋转</div>
+                <div class="feat-desc">自由视角操控<br>全方位无死角</div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">🚪</div>
+                <div class="feat-title">自动开门</div>
+                <div class="feat-desc">智能路径规划<br>畅通无阻快感</div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">🔇</div>
+                <div class="feat-title">静默路飞</div>
+                <div class="feat-desc">低调隐蔽运行<br>如影随风不留痕</div>
+            </div>
         </div>
-        <p class="footer-text">© 2026 kiro — 保留所有权利</p>
+
+        <p class="footer-text">© 2026 kiro — 保留所有权利 · 版本 V1.2.14</p>
     </div>
 
+    <!-- 下载密码弹窗 -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-dialog">
             <div class="modal-icon">🔐</div>
@@ -612,168 +656,167 @@
     </div>
 
     <script>
-        // ============ 粒子动画（支持主题） ============
-        const canvas = document.getElementById('particlesCanvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        let mouseX = -1000, mouseY = -1000;
-        const particleCount = 130;
-        let currentHues = [265, 185, 38, 335]; // 默认
+        (function() {
+            // 粒子系统
+            const canvas = document.getElementById('particlesCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let mouseX = -1000, mouseY = -1000;
+            const particleCount = 130;
+            let currentHues = [265, 185, 38, 335];
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resizeCanvas();
-        window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
-        document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
-        document.addEventListener('touchmove', (e) => { if(e.touches.length>0){ mouseX=e.touches[0].clientX; mouseY=e.touches[0].clientY; } });
-        document.addEventListener('mouseleave', () => { mouseX=-1000; mouseY=-1000; });
-
-        class Particle {
-            constructor() { this.reset(); }
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2.2 + 0.6;
-                this.speedX = (Math.random() - 0.5) * 0.45;
-                this.speedY = (Math.random() - 0.5) * 0.45;
-                this.opacity = Math.random() * 0.7 + 0.3;
-                // 从当前主题色调中随机选取
-                this.hue = currentHues[Math.floor(Math.random() * currentHues.length)] + (Math.random()*20 - 10);
-                this.life = Math.random()*300+200;
-                this.maxLife = this.life;
-                this.twinkleSpeed = Math.random()*0.02+0.005;
-                this.twinkleOffset = Math.random()*Math.PI*2;
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
             }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                const dx = mouseX - this.x, dy = mouseY - this.y;
-                const dist = Math.sqrt(dx*dx+dy*dy);
-                if(dist<170 && mouseX>0 && mouseY>0){
-                    const force = (170-dist)/170;
-                    this.speedX += (dx/dist)*force*0.025;
-                    this.speedY += (dy/dist)*force*0.025;
+            resizeCanvas();
+            window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+            document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+            document.addEventListener('touchmove', (e) => { if(e.touches.length>0){ mouseX=e.touches[0].clientX; mouseY=e.touches[0].clientY; } });
+            document.addEventListener('mouseleave', () => { mouseX=-1000; mouseY=-1000; });
+
+            class Particle {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2.2 + 0.6;
+                    this.speedX = (Math.random() - 0.5) * 0.45;
+                    this.speedY = (Math.random() - 0.5) * 0.45;
+                    this.opacity = Math.random() * 0.7 + 0.3;
+                    this.hue = currentHues[Math.floor(Math.random() * currentHues.length)] + (Math.random()*20 - 10);
+                    this.life = Math.random()*300+200;
+                    this.maxLife = this.life;
+                    this.twinkleSpeed = Math.random()*0.02+0.005;
+                    this.twinkleOffset = Math.random()*Math.PI*2;
                 }
-                this.speedX *= 0.999; this.speedY *= 0.999;
-                const maxSpeed=1.4, speed=Math.sqrt(this.speedX**2+this.speedY**2);
-                if(speed>maxSpeed){ this.speedX=(this.speedX/speed)*maxSpeed; this.speedY=(this.speedY/speed)*maxSpeed; }
-                if(this.x<-20) this.x=canvas.width+20;
-                if(this.x>canvas.width+20) this.x=-20;
-                if(this.y<-20) this.y=canvas.height+20;
-                if(this.y>canvas.height+20) this.y=-20;
-                this.life--;
-                if(this.life<=0) this.reset();
-            }
-            getAlpha() {
-                const lifeRatio = this.life/this.maxLife;
-                const twinkle = Math.sin(this.life*this.twinkleSpeed+this.twinkleOffset)*0.3+0.7;
-                return this.opacity*lifeRatio*twinkle;
-            }
-            draw(ctx) {
-                const alpha = this.getAlpha();
-                if(alpha<0.04) return;
-                ctx.beginPath();
-                ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-                ctx.fillStyle = `hsla(${this.hue},80%,70%,${alpha})`;
-                ctx.fill();
-                if(this.size>1.2 && alpha>0.35){
-                    ctx.beginPath();
-                    ctx.arc(this.x,this.y,this.size*2.5,0,Math.PI*2);
-                    ctx.fillStyle = `hsla(${this.hue},85%,60%,${alpha*0.13})`;
-                    ctx.fill();
-                }
-            }
-        }
-
-        function initParticles() {
-            particles = [];
-            for(let i=0;i<particleCount;i++) particles.push(new Particle());
-        }
-        initParticles();
-
-        function drawLines(ctx) {
-            for(let i=0;i<particles.length;i++){
-                for(let j=i+1;j<particles.length;j++){
-                    const dx = particles[i].x-particles[j].x;
-                    const dy = particles[i].y-particles[j].y;
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    const dx = mouseX - this.x, dy = mouseY - this.y;
                     const dist = Math.sqrt(dx*dx+dy*dy);
-                    const maxDist = 110;
-                    if(dist<maxDist){
-                        const alpha = (1-dist/maxDist)*0.13;
-                        const alphaI = particles[i].getAlpha();
-                        const alphaJ = particles[j].getAlpha();
-                        const lineAlpha = alpha*Math.min(alphaI,alphaJ)*3;
-                        if(lineAlpha>0.008){
-                            ctx.beginPath();
-                            ctx.moveTo(particles[i].x,particles[i].y);
-                            ctx.lineTo(particles[j].x,particles[j].y);
-                            ctx.strokeStyle = `rgba(170,170,210,${lineAlpha})`;
-                            ctx.lineWidth = 0.4;
-                            ctx.stroke();
+                    if(dist<170 && mouseX>0 && mouseY>0){
+                        const force = (170-dist)/170;
+                        this.speedX += (dx/dist)*force*0.025;
+                        this.speedY += (dy/dist)*force*0.025;
+                    }
+                    this.speedX *= 0.999; this.speedY *= 0.999;
+                    const maxSpeed=1.4, speed=Math.sqrt(this.speedX**2+this.speedY**2);
+                    if(speed>maxSpeed){ this.speedX=(this.speedX/speed)*maxSpeed; this.speedY=(this.speedY/speed)*maxSpeed; }
+                    if(this.x<-20) this.x=canvas.width+20;
+                    if(this.x>canvas.width+20) this.x=-20;
+                    if(this.y<-20) this.y=canvas.height+20;
+                    if(this.y>canvas.height+20) this.y=-20;
+                    this.life--;
+                    if(this.life<=0) this.reset();
+                }
+                getAlpha() {
+                    const lifeRatio = this.life/this.maxLife;
+                    const twinkle = Math.sin(this.life*this.twinkleSpeed+this.twinkleOffset)*0.3+0.7;
+                    return this.opacity*lifeRatio*twinkle;
+                }
+                draw(ctx) {
+                    const alpha = this.getAlpha();
+                    if(alpha<0.04) return;
+                    ctx.beginPath();
+                    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+                    ctx.fillStyle = `hsla(${this.hue},80%,70%,${alpha})`;
+                    ctx.fill();
+                    if(this.size>1.2 && alpha>0.35){
+                        ctx.beginPath();
+                        ctx.arc(this.x,this.y,this.size*2.5,0,Math.PI*2);
+                        ctx.fillStyle = `hsla(${this.hue},85%,60%,${alpha*0.13})`;
+                        ctx.fill();
+                    }
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                for(let i=0;i<particleCount;i++) particles.push(new Particle());
+            }
+            initParticles();
+
+            function drawLines(ctx) {
+                for(let i=0;i<particles.length;i++){
+                    for(let j=i+1;j<particles.length;j++){
+                        const dx = particles[i].x-particles[j].x;
+                        const dy = particles[i].y-particles[j].y;
+                        const dist = Math.sqrt(dx*dx+dy*dy);
+                        const maxDist = 110;
+                        if(dist<maxDist){
+                            const alpha = (1-dist/maxDist)*0.13;
+                            const alphaI = particles[i].getAlpha();
+                            const alphaJ = particles[j].getAlpha();
+                            const lineAlpha = alpha*Math.min(alphaI,alphaJ)*3;
+                            if(lineAlpha>0.008){
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x,particles[i].y);
+                                ctx.lineTo(particles[j].x,particles[j].y);
+                                ctx.strokeStyle = `rgba(170,170,210,${lineAlpha})`;
+                                ctx.lineWidth = 0.4;
+                                ctx.stroke();
+                            }
                         }
                     }
                 }
             }
-        }
 
-        function animate() {
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            particles.forEach(p => { p.update(); p.draw(ctx); });
-            drawLines(ctx);
-            requestAnimationFrame(animate);
-        }
-        animate();
+            function animate() {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                particles.forEach(p => { p.update(); p.draw(ctx); });
+                drawLines(ctx);
+                requestAnimationFrame(animate);
+            }
+            animate();
 
-        // ============ 主题切换 ============
-        const themeKeys = ['theme-default', 'theme-dark', 'theme-aurora', 'theme-cyber'];
-        const themeHues = {
-            'theme-default': [265, 185, 38, 335],
-            'theme-dark': [45, 35, 20, 50],
-            'theme-aurora': [160, 190, 200, 170],
-            'theme-cyber': [300, 180, 280, 330]
-        };
-        let currentThemeIndex = 0;
+            // 主题切换
+            const themeKeys = ['theme-default', 'theme-dark', 'theme-aurora', 'theme-cyber'];
+            const themeHues = {
+                'theme-default': [265, 185, 38, 335],
+                'theme-dark': [45, 35, 20, 50],
+                'theme-aurora': [160, 190, 200, 170],
+                'theme-cyber': [300, 180, 280, 330]
+            };
+            let currentThemeIndex = 0;
 
-        function applyTheme(themeClass) {
-            document.body.className = themeClass;
-            currentHues = themeHues[themeClass] || [265,185,38,335];
-            // 重新初始化粒子以匹配新色调
-            initParticles();
-            localStorage.setItem('kiro-theme', themeClass);
-        }
+            function applyTheme(themeClass) {
+                document.body.className = themeClass;
+                currentHues = themeHues[themeClass] || [265,185,38,335];
+                initParticles();
+                localStorage.setItem('kiro-theme', themeClass);
+            }
 
-        // 加载保存的主题
-        const savedTheme = localStorage.getItem('kiro-theme');
-        if (savedTheme && themeKeys.includes(savedTheme)) {
-            currentThemeIndex = themeKeys.indexOf(savedTheme);
-            applyTheme(savedTheme);
-        } else {
-            applyTheme('theme-default');
-        }
+            const savedTheme = localStorage.getItem('kiro-theme');
+            if (savedTheme && themeKeys.includes(savedTheme)) {
+                currentThemeIndex = themeKeys.indexOf(savedTheme);
+                applyTheme(savedTheme);
+            } else {
+                applyTheme('theme-default');
+            }
 
-        document.getElementById('themeSwitchBtn').addEventListener('click', () => {
-            currentThemeIndex = (currentThemeIndex + 1) % themeKeys.length;
-            applyTheme(themeKeys[currentThemeIndex]);
-        });
+            document.getElementById('themeSwitchBtn').addEventListener('click', () => {
+                currentThemeIndex = (currentThemeIndex + 1) % themeKeys.length;
+                applyTheme(themeKeys[currentThemeIndex]);
+            });
 
-        // ============ 售后群按钮 ============
-        document.getElementById('serviceBtn').addEventListener('click', () => {
-            window.open('https://qm.qq.com/q/BfEl7b2t8s', '_blank');
-        });
+            // 售后群跳转
+            document.getElementById('serviceBtn').addEventListener('click', () => {
+                window.open('https://qm.qq.com/q/BfEl7b2t8s', '_blank');
+            });
 
-        // ============ 下载弹窗 ============
-        const modalOverlay = document.getElementById('modalOverlay');
-        document.getElementById('downloadBtn').addEventListener('click', () => {
-            modalOverlay.classList.add('active');
-        });
-        document.getElementById('confirmBtn').addEventListener('click', () => {
-            window.location.href = 'https://wwazp.lanzouw.com/b01bjeq54h';
-        });
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) modalOverlay.classList.remove('active');
-        });
+            // 下载弹窗
+            const modalOverlay = document.getElementById('modalOverlay');
+            document.getElementById('downloadBtn').addEventListener('click', () => {
+                modalOverlay.classList.add('active');
+            });
+            document.getElementById('confirmBtn').addEventListener('click', () => {
+                window.location.href = 'https://wwazp.lanzouw.com/b01bjeq54h';
+            });
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) modalOverlay.classList.remove('active');
+            });
+        })();
     </script>
 </body>
 </html>
