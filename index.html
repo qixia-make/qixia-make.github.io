@@ -6,27 +6,106 @@
     <title>kiro | 数字世界入口</title>
     <style>
         :root {
+            --bg: #04040c;
+            --card-bg: rgba(16, 16, 30, 0.82);
+            --card-border: rgba(255, 255, 255, 0.12);
+            --card-shadow: 0 6px 36px rgba(0, 0, 0, 0.45), 0 0 70px rgba(124, 58, 237, 0.2), 0 0 110px rgba(6, 182, 212, 0.12);
+            --card-hover-shadow: 0 10px 48px rgba(0,0,0,0.55), 0 0 90px rgba(124,58,237,0.35), 0 0 140px rgba(6,182,212,0.2);
             --primary: #7c3aed;
             --accent: #06b6d4;
             --gold: #f59e0b;
-            --dark: #0a0a14;
-            --darker: #04040c;
-            --modal-bg: rgba(10, 10, 20, 0.95);
+            --text: #e0e0e0;
+            --subtext: #9ca3af;
+            --btn-gradient: linear-gradient(135deg, #7c3aed 0%, #4f46e5 35%, #06b6d4 100%);
+            --btn-hover-shadow: 0 12px 40px rgba(124,58,237,0.7), 0 0 80px rgba(6,182,212,0.5);
+            --logo-gradient: linear-gradient(135deg, #c4b5fd 0%, #818cf8 20%, #06b6d4 40%, #f59e0b 60%, #f472b6 80%, #c4b5fd 100%);
+            --highlight-gradient: linear-gradient(135deg, #06b6d4, #f59e0b);
+            --price-gradient: linear-gradient(135deg, #f59e0b, #f97316);
+            --modal-bg: rgba(20, 20, 40, 0.9);
+            --modal-border: rgba(124, 58, 237, 0.5);
+            --particle-hues: [265, 185, 38, 335];
         }
+
+        body.theme-dark {
+            --bg: #0a0a0a;
+            --card-bg: rgba(25, 25, 15, 0.9);
+            --card-border: rgba(212, 175, 55, 0.4);
+            --card-shadow: 0 6px 36px rgba(0,0,0,0.6), 0 0 70px rgba(212, 175, 55, 0.3), 0 0 110px rgba(200, 160, 40, 0.2);
+            --card-hover-shadow: 0 10px 48px rgba(0,0,0,0.7), 0 0 90px rgba(212,175,55,0.5), 0 0 140px rgba(200,160,40,0.4);
+            --primary: #d4af37;
+            --accent: #b8860b;
+            --gold: #ffd700;
+            --text: #e5d5b0;
+            --subtext: #b0a583;
+            --btn-gradient: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #8b6508 100%);
+            --btn-hover-shadow: 0 12px 40px rgba(212,175,55,0.8), 0 0 80px rgba(184,134,11,0.6);
+            --logo-gradient: linear-gradient(135deg, #ffd700 0%, #d4af37 30%, #b8860b 60%, #ffd700 100%);
+            --highlight-gradient: linear-gradient(135deg, #d4af37, #ff8c00);
+            --price-gradient: linear-gradient(135deg, #ffd700, #ff8c00);
+            --modal-bg: rgba(30, 30, 15, 0.95);
+            --modal-border: rgba(212, 175, 55, 0.7);
+            --particle-hues: [45, 35, 20, 50];
+        }
+
+        body.theme-aurora {
+            --bg: #001a33;
+            --card-bg: rgba(10, 25, 45, 0.85);
+            --card-border: rgba(0, 255, 200, 0.3);
+            --card-shadow: 0 6px 36px rgba(0,0,0,0.5), 0 0 70px rgba(0,255,200,0.25), 0 0 110px rgba(0,180,255,0.2);
+            --card-hover-shadow: 0 10px 48px rgba(0,0,0,0.6), 0 0 90px rgba(0,255,200,0.4), 0 0 140px rgba(0,180,255,0.35);
+            --primary: #00ffc8;
+            --accent: #00b4d8;
+            --gold: #90e0ef;
+            --text: #d0f0ff;
+            --subtext: #90c0d0;
+            --btn-gradient: linear-gradient(135deg, #00ffc8 0%, #00b4d8 40%, #0077b6 100%);
+            --btn-hover-shadow: 0 12px 40px rgba(0,255,200,0.7), 0 0 80px rgba(0,180,255,0.5);
+            --logo-gradient: linear-gradient(135deg, #00ffc8 0%, #00b4d8 30%, #90e0ef 60%, #00ffc8 100%);
+            --highlight-gradient: linear-gradient(135deg, #00ffc8, #0077b6);
+            --price-gradient: linear-gradient(135deg, #90e0ef, #00b4d8);
+            --modal-bg: rgba(10, 30, 50, 0.95);
+            --modal-border: rgba(0, 255, 200, 0.6);
+            --particle-hues: [160, 190, 200, 170];
+        }
+
+        body.theme-cyber {
+            --bg: #0d0221;
+            --card-bg: rgba(10, 5, 30, 0.9);
+            --card-border: rgba(255, 0, 200, 0.4);
+            --card-shadow: 0 6px 36px rgba(0,0,0,0.6), 0 0 70px rgba(255,0,200,0.3), 0 0 110px rgba(0,255,255,0.2);
+            --card-hover-shadow: 0 10px 48px rgba(0,0,0,0.7), 0 0 90px rgba(255,0,200,0.5), 0 0 140px rgba(0,255,255,0.35);
+            --primary: #ff00c8;
+            --accent: #00ffff;
+            --gold: #ff00ff;
+            --text: #f0e0ff;
+            --subtext: #c0a0d0;
+            --btn-gradient: linear-gradient(135deg, #ff00c8 0%, #7b00ff 40%, #00ffff 100%);
+            --btn-hover-shadow: 0 12px 40px rgba(255,0,200,0.8), 0 0 80px rgba(0,255,255,0.6);
+            --logo-gradient: linear-gradient(135deg, #ff00c8 0%, #7b00ff 30%, #00ffff 60%, #ff00c8 100%);
+            --highlight-gradient: linear-gradient(135deg, #ff00c8, #00ffff);
+            --price-gradient: linear-gradient(135deg, #ff00ff, #00ffff);
+            --modal-bg: rgba(20, 5, 40, 0.95);
+            --modal-border: rgba(255, 0, 200, 0.7);
+            --particle-hues: [300, 180, 280, 330];
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
-            background: var(--darker);
-            color: #e0e0e0;
+            background: var(--bg);
+            color: var(--text);
             overflow-x: hidden;
             min-height: 100vh;
             cursor: default;
             -webkit-font-smoothing: antialiased;
+            transition: background 0.5s ease, color 0.5s ease;
         }
+
         #particlesCanvas {
             position: fixed;
             top: 0;
@@ -36,6 +115,7 @@
             z-index: 0;
             pointer-events: none;
         }
+
         .main-container {
             position: relative;
             z-index: 1;
@@ -46,12 +126,13 @@
             min-height: 100vh;
             padding: 30px 20px;
         }
+
         .logo-text {
             font-size: 3.2rem;
             font-weight: 900;
             letter-spacing: 8px;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #c4b5fd 0%, #818cf8 20%, #06b6d4 40%, #f59e0b 60%, #f472b6 80%, #c4b5fd 100%);
+            background: var(--logo-gradient);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -61,20 +142,24 @@
             text-align: center;
             filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.5));
         }
+
         @keyframes gradient-shift {
             0%,100% { background-position: 0% 50%; }
             25% { background-position: 100% 0%; }
             50% { background-position: 100% 100%; }
             75% { background-position: 0% 100%; }
         }
+
         .logo-sub {
             font-size: 0.85rem;
             letter-spacing: 6px;
-            color: #6b7280;
+            color: var(--subtext);
             text-transform: uppercase;
             margin-bottom: 40px;
             text-align: center;
+            transition: color 0.5s;
         }
+
         .badge {
             display: inline-flex;
             align-items: center;
@@ -90,23 +175,28 @@
             margin-bottom: 24px;
             backdrop-filter: blur(6px);
             animation: fadeInUp 0.7s ease forwards;
+            transition: all 0.5s;
         }
+
         .badge .dot {
             width: 7px;
             height: 7px;
-            background: #06b6d4;
+            background: var(--accent);
             border-radius: 50%;
             animation: pulse-dot 2s ease-in-out infinite;
-            box-shadow: 0 0 10px #06b6d4;
+            box-shadow: 0 0 10px var(--accent);
         }
+
         @keyframes pulse-dot {
-            0%,100% { box-shadow: 0 0 6px #06b6d4; }
-            50% { box-shadow: 0 0 22px #06b6d4, 0 0 40px rgba(6,182,212,0.6); }
+            0%,100% { box-shadow: 0 0 6px var(--accent); }
+            50% { box-shadow: 0 0 22px var(--accent), 0 0 40px rgba(6,182,212,0.6); }
         }
+
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         .main-title {
             font-size: clamp(1.8rem, 4.5vw, 3.2rem);
             font-weight: 800;
@@ -119,15 +209,17 @@
             animation-fill-mode: forwards;
             color: #fff;
         }
+
         .main-title .highlight {
-            background: linear-gradient(135deg, #06b6d4, #f59e0b);
+            background: var(--highlight-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .sub-title {
             font-size: clamp(0.9rem, 1.6vw, 1.05rem);
-            color: #9ca3af;
+            color: var(--subtext);
             max-width: 520px;
             line-height: 1.7;
             margin-bottom: 32px;
@@ -136,6 +228,7 @@
             opacity: 0;
             animation-fill-mode: forwards;
         }
+
         .payment-card-wrapper {
             animation: fadeInUp 0.7s ease 0.28s forwards;
             opacity: 0;
@@ -143,6 +236,7 @@
             position: relative;
             margin-bottom: 24px;
         }
+
         .payment-card-glow {
             position: absolute;
             inset: -4px;
@@ -152,40 +246,47 @@
             filter: blur(22px);
             z-index: -1;
             opacity: 0.65;
+            transition: opacity 0.5s;
         }
+
         @keyframes rotate-glow {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
+
         .payment-card {
             position: relative;
-            background: rgba(16,16,30,0.82);
+            background: var(--card-bg);
             backdrop-filter: blur(28px);
             -webkit-backdrop-filter: blur(28px);
-            border: 1.5px solid rgba(255,255,255,0.12);
+            border: 1.5px solid var(--card-border);
             border-radius: 20px;
-            padding: 34px 40px;
+            padding: 34px 30px;
             text-align: center;
-            box-shadow: 0 6px 36px rgba(0,0,0,0.45), 0 0 70px rgba(124,58,237,0.2), 0 0 110px rgba(6,182,212,0.12), inset 0 1px 0 rgba(255,255,255,0.04);
+            box-shadow: var(--card-shadow);
             transition: all 0.4s ease;
-            max-width: 440px;
+            max-width: 500px;
             width: 100%;
+            margin: 0 auto;
         }
+
         .payment-card:hover {
             border-color: rgba(255,255,255,0.28);
-            box-shadow: 0 10px 48px rgba(0,0,0,0.55), 0 0 90px rgba(124,58,237,0.35), 0 0 140px rgba(6,182,212,0.2), 0 0 180px rgba(245,158,11,0.15), inset 0 1px 0 rgba(255,255,255,0.07);
+            box-shadow: var(--card-hover-shadow), inset 0 1px 0 rgba(255,255,255,0.07);
             transform: translateY(-2px);
         }
+
         .payment-card .card-icon {
             font-size: 2.8rem;
             margin-bottom: 8px;
-            display: inline-block;
             animation: float 3s ease-in-out infinite;
         }
+
         @keyframes float {
             0%,100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
+
         .payment-card .card-label {
             font-size: 0.78rem;
             text-transform: uppercase;
@@ -194,6 +295,7 @@
             margin-bottom: 6px;
             font-weight: 500;
         }
+
         .payment-card .card-title {
             font-size: 1.6rem;
             font-weight: 800;
@@ -201,117 +303,83 @@
             margin-bottom: 4px;
             letter-spacing: 1px;
         }
+
         .payment-card .card-price {
             font-size: 2.4rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
+            background: var(--price-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 2px;
             letter-spacing: 2px;
         }
+
         .payment-card .card-desc {
             font-size: 0.85rem;
             color: #9999b0;
             margin-bottom: 18px;
         }
-        .btn-wrap {
-            position: relative;
-            display: inline-block;
+
+        /* 三个按钮行 */
+        .buttons-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
         }
-        .pulse-ring {
-            position: absolute;
-            inset: -6px;
-            border-radius: 70px;
-            border: 2px solid rgba(255,255,255,0.2);
-            animation: pulse-ring 2.5s ease-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .pulse-ring:nth-child(2) {
-            animation-delay: 0.6s;
-            inset: -14px;
-            border-radius: 80px;
-        }
-        .pulse-ring:nth-child(3) {
-            animation-delay: 1.2s;
-            inset: -22px;
-            border-radius: 90px;
-        }
-        @keyframes pulse-ring {
-            0% { transform: scale(1); opacity: 0.75; }
-            100% { transform: scale(1.4); opacity: 0; }
-        }
-        .btn-pay, .btn-download {
+
+        .btn-card {
             position: relative;
             z-index: 1;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 16px 44px;
-            font-size: 1.1rem;
+            gap: 6px;
+            padding: 14px 24px;
+            font-size: 0.95rem;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             color: #fff;
             text-decoration: none;
             border-radius: 60px;
-            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 35%, #06b6d4 100%);
+            background: var(--btn-gradient);
             background-size: 200% 200%;
             animation: btn-shift 3s ease infinite;
             border: none;
             cursor: pointer;
-            box-shadow: 0 6px 28px rgba(124,58,237,0.5), 0 0 55px rgba(6,182,212,0.3);
-            transition: all 0.4s ease;
-            overflow: hidden;
-            margin: 10px 0;
+            box-shadow: 0 6px 20px rgba(124,58,237,0.4);
+            transition: all 0.3s ease;
+            min-width: 130px;
         }
-        .btn-download {
-            background: linear-gradient(135deg, #06b6d4 0%, #0e7490 35%, #7c3aed 100%);
-            box-shadow: 0 6px 28px rgba(6,182,212,0.5), 0 0 55px rgba(124,58,237,0.3);
+
+        .btn-card:hover {
+            transform: scale(1.05);
+            box-shadow: var(--btn-hover-shadow);
+            letter-spacing: 2px;
         }
-        .btn-pay::before, .btn-download::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 60px;
-            background: linear-gradient(135deg, #06b6d4, #7c3aed, #f59e0b);
-            background-size: 300% 300%;
-            animation: btn-shift 3s ease infinite;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+
+        .btn-card:active {
+            transform: scale(0.95);
         }
-        .btn-download::before {
-            background: linear-gradient(135deg, #f59e0b, #06b6d4, #7c3aed);
-        }
-        .btn-pay:hover, .btn-download:hover {
-            transform: scale(1.06);
-            box-shadow: 0 12px 40px rgba(124,58,237,0.7), 0 0 80px rgba(6,182,212,0.5), 0 0 120px rgba(245,158,11,0.3);
-            letter-spacing: 3px;
-        }
-        .btn-pay:hover::before, .btn-download:hover::before { opacity: 1; }
-        .btn-pay:active, .btn-download:active { transform: scale(0.95); transition: transform 0.12s ease; }
+
         @keyframes btn-shift {
             0%,100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
-        .btn-pay .btn-arrow, .btn-download .btn-arrow {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-        .btn-pay:hover .btn-arrow, .btn-download:hover .btn-arrow { transform: translateX(6px); }
+
         .security-badges {
             display: flex;
             gap: 16px;
-            margin-top: 14px;
+            margin-top: 8px;
             flex-wrap: wrap;
             justify-content: center;
             animation: fadeInUp 0.7s ease 0.36s forwards;
             opacity: 0;
             animation-fill-mode: forwards;
         }
+
         .sec-badge {
             display: flex;
             align-items: center;
@@ -320,7 +388,12 @@
             color: #8888a0;
             letter-spacing: 0.5px;
         }
-        .sec-badge .sec-icon { font-size: 0.95rem; color: #06b6d4; }
+
+        .sec-badge .sec-icon {
+            font-size: 0.95rem;
+            color: var(--accent);
+        }
+
         .features-row {
             display: flex;
             gap: 20px;
@@ -331,6 +404,7 @@
             opacity: 0;
             animation-fill-mode: forwards;
         }
+
         .feature-item {
             display: flex;
             align-items: center;
@@ -344,18 +418,21 @@
             border: 1px solid rgba(255,255,255,0.07);
             transition: all 0.3s ease;
         }
+
         .feature-item:hover {
             background: rgba(255,255,255,0.05);
             border-color: rgba(255,255,255,0.18);
             color: #fff;
         }
+
         .feature-dot {
             width: 7px;
             height: 7px;
             border-radius: 50%;
-            background: #06b6d4;
+            background: var(--accent);
             box-shadow: 0 0 8px rgba(6,182,212,0.6);
         }
+
         .footer-text {
             margin-top: 40px;
             font-size: 0.75rem;
@@ -367,7 +444,7 @@
             text-align: center;
         }
 
-        /* ========= 弹窗样式 ========= */
+        /* 弹窗样式 */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -376,7 +453,6 @@
             height: 100%;
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             z-index: 999;
             display: flex;
             align-items: center;
@@ -385,65 +461,69 @@
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
+
         .modal-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
+
         .modal-dialog {
-            background: rgba(20,20,40,0.9);
+            background: var(--modal-bg);
             backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1.5px solid rgba(124,58,237,0.5);
+            border: 1.5px solid var(--modal-border);
             border-radius: 24px;
             padding: 40px 30px;
             text-align: center;
             max-width: 380px;
             width: 90%;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.6), 0 0 70px rgba(124,58,237,0.4), 0 0 120px rgba(6,182,212,0.25);
-            position: relative;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.6), 0 0 70px rgba(124,58,237,0.4);
             animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
+
         @keyframes modalPop {
             from { transform: scale(0.8); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
+
         .modal-dialog .modal-icon {
             font-size: 3rem;
             margin-bottom: 10px;
-            animation: float 2s ease-in-out infinite;
         }
+
         .modal-dialog h3 {
             font-size: 1.8rem;
             font-weight: 800;
             color: #fff;
             margin-bottom: 10px;
-            letter-spacing: 1px;
         }
+
         .modal-dialog .password-box {
             background: rgba(0,0,0,0.3);
-            border: 1px dashed rgba(6,182,212,0.6);
+            border: 1px dashed var(--accent);
             border-radius: 12px;
             padding: 15px;
             margin: 20px 0;
             display: inline-block;
         }
+
         .modal-dialog .password-box .label {
             font-size: 0.7rem;
             letter-spacing: 2px;
             color: #8888a0;
             margin-bottom: 6px;
-            text-transform: uppercase;
         }
+
         .modal-dialog .password-box .password {
             font-size: 2.8rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
+            background: var(--price-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             letter-spacing: 6px;
             user-select: all;
         }
+
         .modal-dialog .btn-know {
             margin-top: 20px;
             padding: 14px 40px;
@@ -451,48 +531,32 @@
             font-weight: 700;
             letter-spacing: 2px;
             color: #fff;
-            background: linear-gradient(135deg, #06b6d4, #7c3aed);
+            background: var(--btn-gradient);
             border: none;
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 4px 20px rgba(6,182,212,0.5);
             transition: all 0.3s ease;
         }
+
         .modal-dialog .btn-know:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(6,182,212,0.8), 0 0 60px rgba(124,58,237,0.5);
-            letter-spacing: 3px;
-        }
-        .modal-dialog .close-hint {
-            font-size: 0.7rem;
-            color: #666;
-            margin-top: 15px;
-            letter-spacing: 1px;
+            box-shadow: 0 8px 30px rgba(6,182,212,0.8);
         }
 
         @media (max-width: 768px) {
-            .logo-text { font-size: 2.4rem; letter-spacing: 5px; }
-            .payment-card { padding: 26px 20px; border-radius: 16px; }
-            .payment-card .card-title { font-size: 1.3rem; }
-            .payment-card .card-price { font-size: 2rem; }
-            .btn-pay, .btn-download { padding: 14px 32px; font-size: 0.95rem; letter-spacing: 1.5px; }
-            .payment-card-glow { border-radius: 18px; inset: -3px; filter: blur(14px); }
-            .features-row { gap: 10px; }
-            .feature-item { font-size: 0.74rem; padding: 7px 12px; }
-            .modal-dialog { padding: 30px 20px; }
-            .modal-dialog .password { font-size: 2.2rem; }
-        }
-        @media (max-width: 480px) {
-            .logo-text { font-size: 1.8rem; letter-spacing: 4px; }
-            .logo-sub { letter-spacing: 4px; font-size: 0.7rem; }
-            .payment-card { padding: 20px 14px; border-radius: 14px; }
-            .payment-card .card-price { font-size: 1.6rem; }
-            .btn-pay, .btn-download { padding: 12px 24px; font-size: 0.85rem; }
-            .pulse-ring { display: none; }
+            .btn-card {
+                padding: 12px 16px;
+                font-size: 0.82rem;
+                min-width: 100px;
+            }
+            .buttons-row {
+                gap: 8px;
+            }
         }
     </style>
 </head>
-<body>
+<body class="theme-default">
     <canvas id="particlesCanvas"></canvas>
     <div class="main-container">
         <h1 class="logo-text">kiro</h1>
@@ -500,14 +564,9 @@
         <div class="badge">
             <span class="dot"></span> 限时通道 · 即刻访问
         </div>
-        <h2 class="main-title">
-            探索<span class="highlight">无限可能</span>
-        </h2>
-        <p class="sub-title">
-            安全 · 高效 · 极速响应的数字服务平台<br>为您打开通往未来的大门
-        </p>
+        <h2 class="main-title">探索<span class="highlight">无限可能</span></h2>
+        <p class="sub-title">安全 · 高效 · 极速响应的数字服务平台<br>为您打开通往未来的大门</p>
 
-        <!-- 支付卡片 -->
         <div class="payment-card-wrapper">
             <div class="payment-card-glow"></div>
             <div class="payment-card">
@@ -515,15 +574,11 @@
                 <div class="card-label">专属通道</div>
                 <div class="card-title">卡网支付</div>
                 <div class="card-price">立即访问</div>
-                <div class="card-desc">点击下方按钮进入安全支付页面</div>
-                <div class="btn-wrap">
-                    <span class="pulse-ring"></span>
-                    <span class="pulse-ring"></span>
-                    <span class="pulse-ring"></span>
-                    <a href="https://buy.jry0.com/shop/TRHDALAC" target="_blank" rel="noopener noreferrer" class="btn-pay">
-                        前往卡网
-                        <span class="btn-arrow">→</span>
-                    </a>
+                <div class="card-desc">点击下方按钮进入对应服务</div>
+                <div class="buttons-row">
+                    <button class="btn-card" id="serviceBtn">💬 售后群点我</button>
+                    <a href="https://buy.jry0.com/shop/TRHDALAC" target="_blank" rel="noopener noreferrer" class="btn-card">💳 前往卡网</a>
+                    <button class="btn-card" id="themeSwitchBtn">🎨 转变风格</button>
                 </div>
                 <div class="security-badges">
                     <span class="sec-badge"><span class="sec-icon">🔒</span> SSL 加密</span>
@@ -533,13 +588,8 @@
             </div>
         </div>
 
-        <!-- 下载地址按钮（新增） -->
-        <button id="downloadBtn" class="btn-download">
-            📥 下载地址
-            <span class="btn-arrow">↓</span>
-        </button>
+        <button id="downloadBtn" class="btn-card" style="margin: 10px 0;">📥 下载地址</button>
 
-        <!-- 特性行 -->
         <div class="features-row">
             <div class="feature-item"><span class="feature-dot"></span> 7×24小时支持</div>
             <div class="feature-item"><span class="feature-dot"></span> 极速响应</div>
@@ -549,27 +599,27 @@
         <p class="footer-text">© 2026 kiro — 保留所有权利</p>
     </div>
 
-    <!-- 弹窗结构 -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-dialog">
             <div class="modal-icon">🔐</div>
             <h3>下载密码</h3>
             <div class="password-box">
                 <div class="label">访问密码</div>
-                <div class="password" id="passwordDisplay">9178</div>
+                <div class="password">9178</div>
             </div>
             <button class="btn-know" id="confirmBtn">知道了</button>
-            <div class="close-hint">点击按钮后自动跳转</div>
         </div>
     </div>
 
     <script>
-        // ============ 粒子背景动画 ============
+        // ============ 粒子动画（支持主题） ============
         const canvas = document.getElementById('particlesCanvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
         let mouseX = -1000, mouseY = -1000;
         const particleCount = 130;
+        let currentHues = [265, 185, 38, 335]; // 默认
+
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -579,6 +629,7 @@
         document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
         document.addEventListener('touchmove', (e) => { if(e.touches.length>0){ mouseX=e.touches[0].clientX; mouseY=e.touches[0].clientY; } });
         document.addEventListener('mouseleave', () => { mouseX=-1000; mouseY=-1000; });
+
         class Particle {
             constructor() { this.reset(); }
             reset() {
@@ -588,7 +639,8 @@
                 this.speedX = (Math.random() - 0.5) * 0.45;
                 this.speedY = (Math.random() - 0.5) * 0.45;
                 this.opacity = Math.random() * 0.7 + 0.3;
-                this.hue = Math.random()<0.4 ? (Math.random()<0.5?265:185) : (Math.random()<0.5?38:335);
+                // 从当前主题色调中随机选取
+                this.hue = currentHues[Math.floor(Math.random() * currentHues.length)] + (Math.random()*20 - 10);
                 this.life = Math.random()*300+200;
                 this.maxLife = this.life;
                 this.twinkleSpeed = Math.random()*0.02+0.005;
@@ -634,11 +686,13 @@
                 }
             }
         }
+
         function initParticles() {
             particles = [];
             for(let i=0;i<particleCount;i++) particles.push(new Particle());
         }
         initParticles();
+
         function drawLines(ctx) {
             for(let i=0;i<particles.length;i++){
                 for(let j=i+1;j<particles.length;j++){
@@ -663,6 +717,7 @@
                 }
             }
         }
+
         function animate() {
             ctx.clearRect(0,0,canvas.width,canvas.height);
             particles.forEach(p => { p.update(); p.draw(ctx); });
@@ -671,25 +726,54 @@
         }
         animate();
 
-        // ============ 弹窗逻辑 ============
-        const modalOverlay = document.getElementById('modalOverlay');
-        const downloadBtn = document.getElementById('downloadBtn');
-        const confirmBtn = document.getElementById('confirmBtn');
+        // ============ 主题切换 ============
+        const themeKeys = ['theme-default', 'theme-dark', 'theme-aurora', 'theme-cyber'];
+        const themeHues = {
+            'theme-default': [265, 185, 38, 335],
+            'theme-dark': [45, 35, 20, 50],
+            'theme-aurora': [160, 190, 200, 170],
+            'theme-cyber': [300, 180, 280, 330]
+        };
+        let currentThemeIndex = 0;
 
-        downloadBtn.addEventListener('click', () => {
+        function applyTheme(themeClass) {
+            document.body.className = themeClass;
+            currentHues = themeHues[themeClass] || [265,185,38,335];
+            // 重新初始化粒子以匹配新色调
+            initParticles();
+            localStorage.setItem('kiro-theme', themeClass);
+        }
+
+        // 加载保存的主题
+        const savedTheme = localStorage.getItem('kiro-theme');
+        if (savedTheme && themeKeys.includes(savedTheme)) {
+            currentThemeIndex = themeKeys.indexOf(savedTheme);
+            applyTheme(savedTheme);
+        } else {
+            applyTheme('theme-default');
+        }
+
+        document.getElementById('themeSwitchBtn').addEventListener('click', () => {
+            currentThemeIndex = (currentThemeIndex + 1) % themeKeys.length;
+            applyTheme(themeKeys[currentThemeIndex]);
+        });
+
+        // ============ 售后群按钮 ============
+        document.getElementById('serviceBtn').addEventListener('click', () => {
+            window.open('https://qm.qq.com/q/BfEl7b2t8s', '_blank');
+        });
+
+        // ============ 下载弹窗 ============
+        const modalOverlay = document.getElementById('modalOverlay');
+        document.getElementById('downloadBtn').addEventListener('click', () => {
             modalOverlay.classList.add('active');
         });
-
-        confirmBtn.addEventListener('click', () => {
-            // 跳转到指定下载链接
+        document.getElementById('confirmBtn').addEventListener('click', () => {
             window.location.href = 'https://wwazp.lanzouw.com/b01bjeq54h';
         });
-
-        // 点击遮罩层也可关闭（可选），但这里不关闭，防止误触，仅通过按钮跳转
-        // 如果想要点击外部关闭，可以加上：
-        // modalOverlay.addEventListener('click', (e) => {
-        //   if(e.target === modalOverlay) modalOverlay.classList.remove('active');
-        // });
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) modalOverlay.classList.remove('active');
+        });
     </script>
 </body>
 </html>
