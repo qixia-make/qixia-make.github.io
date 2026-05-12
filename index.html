@@ -151,9 +151,8 @@
             letter-spacing: 6px;
             color: var(--subtext);
             text-transform: uppercase;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             text-align: center;
-            transition: color 0.5s;
         }
 
         .badge {
@@ -168,10 +167,9 @@
             background: rgba(124, 58, 237, 0.12);
             border: 1px solid rgba(124, 58, 237, 0.35);
             color: #b8abff;
-            margin-bottom: 24px;
+            margin-bottom: 18px;
             backdrop-filter: blur(6px);
             animation: fadeInUp 0.7s ease forwards;
-            transition: all 0.5s;
         }
 
         .badge .dot {
@@ -218,16 +216,69 @@
             color: var(--subtext);
             max-width: 520px;
             line-height: 1.7;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             text-align: center;
             animation: fadeInUp 0.7s ease 0.16s forwards;
             opacity: 0;
             animation-fill-mode: forwards;
         }
 
+        /* ========== 功能卡片网格 (已上移) ========== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            max-width: 650px;
+            width: 100%;
+            margin: 0 auto 30px;
+            animation: fadeInUp 0.7s ease 0.24s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.3);
+            box-shadow: 0 8px 30px rgba(124,58,237,0.25);
+        }
+
+        .feature-card .feat-icon {
+            font-size: 2rem;
+            margin-bottom: 4px;
+        }
+
+        .feature-card .feat-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-card .feat-desc {
+            font-size: 0.75rem;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
         /* ========== 支付卡片 ========== */
         .payment-card-wrapper {
-            animation: fadeInUp 0.7s ease 0.28s forwards;
+            animation: fadeInUp 0.7s ease 0.32s forwards;
             opacity: 0;
             animation-fill-mode: forwards;
             position: relative;
@@ -317,7 +368,6 @@
             margin-bottom: 18px;
         }
 
-        /* 三个按钮行 */
         .buttons-row {
             display: flex;
             gap: 12px;
@@ -390,71 +440,18 @@
             color: var(--accent);
         }
 
-        /* ========== 功能卡片网格 ========== */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 16px;
-            max-width: 700px;
-            width: 100%;
-            margin: 30px auto 10px;
+        .footer-text {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: #555;
+            letter-spacing: 1px;
+            text-align: center;
             animation: fadeInUp 0.7s ease 0.42s forwards;
             opacity: 0;
             animation-fill-mode: forwards;
         }
 
-        .feature-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 20px 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255,255,255,0.3);
-            box-shadow: 0 8px 30px rgba(124,58,237,0.25);
-        }
-
-        .feature-card .feat-icon {
-            font-size: 2rem;
-            margin-bottom: 4px;
-        }
-
-        .feature-card .feat-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-
-        .feature-card .feat-desc {
-            font-size: 0.75rem;
-            color: #aaa;
-            line-height: 1.4;
-        }
-
-        .footer-text {
-            margin-top: 30px;
-            font-size: 0.75rem;
-            color: #555;
-            letter-spacing: 1px;
-            text-align: center;
-            animation: fadeInUp 0.7s ease 0.48s forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-
-        /* ========== 弹窗 ========== */
+        /* 弹窗 */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -578,9 +575,38 @@
             <span class="dot"></span> 限时通道 · 即刻访问
         </div>
         <h2 class="main-title">释放<span class="highlight">无限潜能</span></h2>
-        <p class="sub-title">安全 · 高效 · 极速响应的数字服务平台<br>为您打开通往未来的大门</p>
+        <p class="sub-title">安全 · 高效 · 极速响应的数字服务平台</p>
 
-        <!-- 支付卡片（含三个按钮） -->
+        <!-- 功能卡片网格 (上移到此，移除实体旋转) -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feat-icon">🎨</div>
+                <div class="feat-title">炫酷UI</div>
+                <div class="feat-desc">UI采用炫彩设计<br>直接让你帅的起飞</div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">⚡</div>
+                <div class="feat-title">自动拾取</div>
+                <div class="feat-desc">智能识别目标<br>极速响应快人一步</div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">🛡️</div>
+                <div class="feat-title">安全可靠</div>
+                <div class="feat-desc">不含任何病毒<br>恶意代码零容忍</div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">🚪</div>
+                <div class="feat-title">自动开门</div>
+                <div class="feat-desc">智能路径规划<br>畅通无阻快感</div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">🔇</div>
+                <div class="feat-title">静默路飞</div>
+                <div class="feat-desc">低调隐蔽运行<br>如影随风不留痕</div>
+            </div>
+        </div>
+
+        <!-- 支付卡片 (紧随其后) -->
         <div class="payment-card-wrapper">
             <div class="payment-card-glow"></div>
             <div class="payment-card">
@@ -602,43 +628,7 @@
             </div>
         </div>
 
-        <!-- 下载按钮独立 -->
         <button id="downloadBtn" class="btn-card" style="margin: 8px 0;">📥 下载地址</button>
-
-        <!-- 特性网格卡片 -->
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feat-icon">🎨</div>
-                <div class="feat-title">炫酷UI</div>
-                <div class="feat-desc">UI采用炫彩设计<br>直接让你帅的起飞</div>
-            </div>
-            <div class="feature-card">
-                <div class="feat-icon">⚡</div>
-                <div class="feat-title">自动拾取</div>
-                <div class="feat-desc">智能识别目标<br>极速响应快人一步</div>
-            </div>
-            <div class="feature-card">
-                <div class="feat-icon">🛡️</div>
-                <div class="feat-title">安全可靠</div>
-                <div class="feat-desc">不含任何病毒<br>恶意代码零容忍</div>
-            </div>
-            <div class="feature-card">
-                <div class="feat-icon">🌀</div>
-                <div class="feat-title">实体旋转</div>
-                <div class="feat-desc">自由视角操控<br>全方位无死角</div>
-            </div>
-            <div class="feature-card">
-                <div class="feat-icon">🚪</div>
-                <div class="feat-title">自动开门</div>
-                <div class="feat-desc">智能路径规划<br>畅通无阻快感</div>
-            </div>
-            <div class="feature-card">
-                <div class="feat-icon">🔇</div>
-                <div class="feat-title">静默路飞</div>
-                <div class="feat-desc">低调隐蔽运行<br>如影随风不留痕</div>
-            </div>
-        </div>
-
         <p class="footer-text">© 2026 kiro — 保留所有权利 · 版本 V1.2.14</p>
     </div>
 
@@ -657,7 +647,6 @@
 
     <script>
         (function() {
-            // 粒子系统
             const canvas = document.getElementById('particlesCanvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
@@ -770,7 +759,6 @@
             }
             animate();
 
-            // 主题切换
             const themeKeys = ['theme-default', 'theme-dark', 'theme-aurora', 'theme-cyber'];
             const themeHues = {
                 'theme-default': [265, 185, 38, 335],
@@ -800,12 +788,10 @@
                 applyTheme(themeKeys[currentThemeIndex]);
             });
 
-            // 售后群跳转
             document.getElementById('serviceBtn').addEventListener('click', () => {
                 window.open('https://qm.qq.com/q/BfEl7b2t8s', '_blank');
             });
 
-            // 下载弹窗
             const modalOverlay = document.getElementById('modalOverlay');
             document.getElementById('downloadBtn').addEventListener('click', () => {
                 modalOverlay.classList.add('active');
